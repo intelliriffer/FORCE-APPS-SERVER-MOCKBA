@@ -1,4 +1,4 @@
-# FORCE-APPS-SERVER-MOKBA
+# FORCE-APPS-SERVER-MOCKBA
 Akai Force Custom Apps Server for Mockba Mod
 
 Installation:
