@@ -1,0 +1,75 @@
+<div id="vuecontainer">
+    <div id="browser">
+        <div class="controlbar">
+
+        </div>
+        <div class="panel">
+            <browser ref="browser" :model="model"></browser>
+
+        </div>
+
+
+    </div>
+
+</div>
+<style>
+    #vuecontainer {
+        margin: 0 auto;
+        padding: 16px;
+        padding-top: 0;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        background-color: #e5e5e5;
+        font-size: 14px;
+        gap: 8px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li label {
+        width: 200px;
+    }
+
+    #vuecontainer ul li .menu {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+    }
+
+    #vuecontainer ul li span {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #ccc;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .imager {
+        max-width: 100%;
+    }
+
+    .imager img {
+        max-width: 100%;
+    }
+</style>

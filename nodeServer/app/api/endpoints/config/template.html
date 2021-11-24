@@ -1,0 +1,88 @@
+<div id="vuecontainer">
+    <h2>Server Path Configuration</h2>
+    <div class="editor">
+        <div class="subinfo">Please Provide Full Paths Below (your drives are mounted under: /media/yourDriveLabel)
+        </div>
+        <ul>
+            <li v-for="(key,index) in nodes" ::key="index">
+                <label>{{key}}</label> <input type="text" v-model="model.CONFIG[key]" />
+            </li>
+
+        </ul>
+    </div>
+    <div id="controls">
+        <button @click="reload">Re-Load</button>
+        <button @click="model.SAVE">Save</button>
+    </div>
+</div>
+
+<style>
+    #vuecontainer {
+        margin: 8px auto;
+        border-radius: 16px;
+        background-color: #ddd;
+        padding: 16px;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 32px;
+
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        background-color: #888;
+        font-size: 14px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li label {
+        width: 200px;
+    }
+
+    #vuecontainer ul li input {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #555;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .subinfo {
+        font-size: 0.8rem;
+    }
+
+    @media(max-width:600px) {
+        #sub-nav {
+            display: flex;
+            gap: 8px;
+            padding: 0px 0px;
+        }
+
+        #vuecontainer ul li {
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+
+        }
+
+        #vuecontainer ul li label,
+        #vuecontainer ul li input {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    }
+</style>

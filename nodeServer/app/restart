@@ -1,0 +1,12 @@
+#!/bin/sh
+#node=$(pidof node)
+nodep=$(ps | grep -E 'server.js$' | grep -v grep | grep -o -E '[0-9]+' | head -n1)
+if [ $nodep ] ; then
+echo "Killing Node with PID: $nodep"
+kill -9 $nodep
+fi
+root=/media/662522
+nodepath=$root/AddOns/nodeServer/node/bin/node
+mypath=$root/Addons/nodeServer/app/server.js
+$nodepath $mypath &
+echo 'Server Restarted'

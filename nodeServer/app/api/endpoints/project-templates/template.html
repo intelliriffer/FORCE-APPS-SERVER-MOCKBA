@@ -1,0 +1,116 @@
+<div id="vuecontainer">
+    <h2>New Project Templates</h2>
+    <div class="editor">
+        <div id="controls">
+            <button @click="reload">Re-Load</button>
+            <button @click="model.SAVE">Save</button>
+        </div>
+        <div class="panels">
+            <div class="panel">
+                <h3>UnAssigned Templates</h3>
+
+                <ul>
+                    <li v-for="(item,index) in available" :key="index"><span>{{index+1}} {{getName(item)}}</span>
+                        <button @click="add(index)">ADD</button>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="panel">
+                <h3>Assigned Templates</h3>
+
+                <ul>
+                    <li v-for="(item,index) in enabled" :key="index"><span>{{index+1}} {{getName(item)}}</span>
+                        <button @click="remove(index)">Remove</button>
+                        <button @click="move(index,-1)">UP</button>
+                        <button @click=move(index,1)>DOWN</button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="info">
+        <b>Note:</b><br />
+        To Save your Projects as Templates Save them in: Internal/Expansions/Projects/Templates<br />
+        The Project Filename Should be lIke: Project Name - Template
+    </div>
+</div>
+
+<style>
+    #vuecontainer {
+        margin: 0px auto;
+        padding: 16px;
+        background-color: #ddd;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 32px;
+
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        background-color: #fff;
+        font-size: 12px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li label {
+        width: 200px;
+    }
+
+    #vuecontainer ul li input {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #555;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .panels {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+
+    .panels .panel {
+        flex: 1
+    }
+
+    .panels li {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+
+    }
+
+    .panels li span {
+        flex: 1;
+    }
+
+    button {
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .info {
+        font-size: 0.8rem;
+        margin-top: 32px;
+        padding: 16px;
+        background-color: #aaa;
+    }
+</style>

@@ -1,0 +1,344 @@
+<div id="vuecontainer">
+    <h4>Project: {{project}}</h4>
+    <div class="tracks">
+        <div class="toolbar">
+            <span v-if="working" class="working"><span class="material-icons"
+                    :style="`transform:rotate(${deg}deg);`">update</span>
+                Processing Please
+                Wait </span>
+            <button :disabled="working" @click="doreset"><span class="material-icons">undo</span><span
+                    class="btext">Reset</span></button>
+            <button :disabled="working" @click="doSave"><span class="material-icons">save</span><span
+                    class="btext">Save</span></button>
+        </div>
+        <ul class="main">
+            <li v-for="(track,index) in mytracks()">
+                <div :class="['header']" :style="COLORSTYLE(track.COLOR)">
+                    <span class="ix">{{index+1}}</span>
+                    <span class="type">{{trackType(track.TYPE)}}</span>
+                    <span class="material-icons dropper">palette
+                        <ul class="cpicker">
+                            <li v-for="(CLR,cindex) in COLORS.COLORS" @click="setColor(CLR,index)"
+                                :style=" COLORSTYLEFROMCODE(CLR.CODE)" :key="cindex">
+                                &nbsp
+                            </li>
+                        </ul>
+                    </span>
+                    <span v-if="index > 0" @click="move(index,-1)" class="material-icons">keyboard_arrow_left</span>
+                    <span v-if="index < mytracks().length - 1 " @click="move(index,1)"
+                        class="material-icons">keyboard_arrow_right</span>
+                </div>
+                <div class="main">
+                    <span @click="rename(track)" class="title">{{track.NAME}}</span>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+    <div class="footer">
+        Please Note: A Backup (.xpjbk) Copy of your original Project will be Created Automatically on Save, In case
+        there is any
+        problem, you can restore from your backup File.
+    </div>
+</div>
+
+<style>
+    body {
+        margin-top: 4px;
+    }
+
+    .working {
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .working .material-icons {
+        font-size: 24px;
+        color: red;
+
+    }
+
+    #vuecontainer {
+        margin: 0px 16px;
+        border-radius: 16px;
+        background-color: #ddd;
+        padding: 16px;
+    }
+
+    button {
+        display: flex;
+        gap: 4px;
+        min-width: 100px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: crimson;
+        color: #fff;
+        border: 1px solid #000;
+        border-radius: 4px;
+
+    }
+
+    .tracks {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .toolbar {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .btext {
+        flex: 1;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #000;
+        border-radius: 4px;
+        width: 100%;
+
+        display: flex;
+        gap: 8px;
+        padding: 4px;
+        padding-bottom: 16px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+    }
+
+    #vuecontainer ul.main {
+        min-height: 156px;
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 0px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        background-color: #000;
+        color: #fff;
+        font-size: 12px;
+        gap: 4px;
+        min-width: 160px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li>.main {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        font-size: 11px;
+        padding: 4px 8px 8px;
+    }
+
+    .header {
+        display: flex;
+        flex: 1;
+        gap: 4px;
+        width: 100%;
+        padding: 0 4px 0 8px;
+        align-items: center;
+        background-color: #383838;
+        border-radius: 4px 4px 0;
+        max-height: 32px
+    }
+
+    .ix.ix {
+
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .ix::after {
+        display: inline-block;
+        content: '. '
+    }
+
+    #vuecontainer ul li .type {
+        font-size: 9px;
+        letter-spacing: 0.25ch;
+        display: flex;
+        flex: 1;
+        text-transform: uppercase;
+        align-items: center;
+        flex: 1;
+
+    }
+
+
+    .title {
+        flex: 1;
+    }
+
+
+
+    #vuecontainer ul::-webkit-scrollbar {
+        background-color: black;
+        border-radius: 0, 0, 4px;
+        width: 16px;
+    }
+
+    #vuecontainer ul::-webkit-scrollbar-thumb {
+
+        background-color: crimson;
+
+        border-radius: 2px;
+
+        border: 5px solid black
+    }
+
+    span.material-icons {
+        color: #777;
+        cursor: pointer;
+    }
+
+    span.material-icons:hover {
+        color: #fff;
+    }
+
+    #vuecontainer ul li input {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #555;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .subinfo {
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        margin-top: 32px;
+        font-size: 11px;
+    }
+
+    .audio {
+        background-color: #E6FF02;
+        color: #000;
+    }
+
+    .drum-kit {
+        background-color: #0FFF03;
+        color: #000;
+    }
+
+    .plugin {
+        background-color: #00FFC4;
+        color: #000;
+    }
+
+    .keygroup {
+        background-color: #0765FC;
+        color: #FFF;
+    }
+
+    .midi {
+        background-color: #6F00FF;
+        color: #FFF;
+
+    }
+
+    .cv {
+        background-color: #FF00BB;
+        color: #FFF;
+    }
+
+    .audio span.material-icons:hover {
+        color: #000;
+    }
+
+    #vuecontainer ul.cpicker {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        min-width: calc(7.85 * 25px);
+        border: 2px solid #000;
+        position: absolute;
+        gap: 0;
+        /* z-index: 99999999999999; */
+        overflow: visible;
+        overflow-y: hidden;
+        overflow-x: vislble;
+        opacity: 0;
+
+        transition: all 0.35s;
+        left: -50px;
+        max-height: 0px;
+        background-color: #ffffffdd;
+    }
+
+    #vuecontainer ul .dropper {
+        max-width: 24px;
+        max-height: 24px;
+        position: relative;
+    }
+
+    #vuecontainer ul .dropper:hover ul.cpicker {
+        opacity: 1;
+        max-height: 100px
+    }
+
+    #vuecontainer ul.cpicker li {
+        min-width: 24px;
+        max-width: 24px;
+        max-height: 24px;
+        min-height: 24px;
+        margin: 0;
+        border-radius: 0;
+        border-collapse: collapse;
+        border: 1px solid #000;
+        border-bottom: 0;
+
+    }
+
+    #vuecontainer ul.cpicker li:last-child {
+        border-bottom: 1px solid #000;
+    }
+
+
+    @media(max-width:600px) {
+        #sub-nav {
+            display: flex;
+            gap: 8px;
+            padding: 0px 0px;
+        }
+
+        #vuecontainer ul li {
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+
+        }
+
+        #vuecontainer ul li label,
+        #vuecontainer ul li input {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    }
+</style>

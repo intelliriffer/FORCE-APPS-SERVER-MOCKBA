@@ -1,0 +1,22 @@
+{
+  "name": "keygroupbuilder",
+  "version": "1.0.0",
+  "description": "Scripts to Build Keygroups for Aki MPC and Force",
+  "main": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intelliriffer/MPC-KeyGroupBuilder.git"
+  },
+  "author": "Amit Talwar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intelliriffer/MPC-KeyGroupBuilder/issues"
+  },
+  "homepage": "https://github.com/intelliriffer/MPC-KeyGroupBuilder#readme",
+  "devDependencies": {
+    "jest": "^27.2.1"
+  }
+}

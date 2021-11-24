@@ -1,0 +1,133 @@
+{
+  "value0": {
+    "rows": [
+      {
+        "type": 0,
+        "rowTitle": "PROJECT TEMPLATES",
+        "iconFile": "template-proj",
+        "forgets": true,
+        "isMRU": false,
+        "items": [
+          {
+            "fileName": "",
+            "name": "Empty"
+          },
+          {
+            "fileName": "Templates/BluesRock - Template.xpj",
+            "name": "BluesRock"
+          },
+          {
+            "fileName": "Templates/DrumSyn LPP - Template.xpj",
+            "name": "DrumSyn LPP"
+          },
+          {
+            "fileName": "Templates/Techno - Template.xpj",
+            "name": "Techno"
+          },
+          {
+            "fileName": "Templates/HipHop - Template.xpj",
+            "name": "HipHop"
+          },
+          {
+            "fileName": "Templates/ClassicHouse - Template.xpj",
+            "name": "ClassicHouse"
+          },
+          {
+            "fileName": "Templates/DeepHouse - Template.xpj",
+            "name": "DeepHouse"
+          },
+          {
+            "fileName": "Templates/TechHouse - Template.xpj",
+            "name": "TechHouse"
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "rowTitle": "DEMOS",
+        "iconFile": "demo-proj",
+        "forgets": true,
+        "isMRU": false,
+        "items": [
+          {
+            "fileName": "Demos/BassHouse - Grind.xpj",
+            "name": "Grind"
+          },
+          {
+            "fileName": "Demos/DeepHouse - After Dark.xpj",
+            "name": "After Dark"
+          },
+          {
+            "fileName": "Demos/DeepHouse - Colors.xpj",
+            "name": "Colors"
+          },
+          {
+            "fileName": "Demos/DeepHouse - Sunset.xpj",
+            "name": "Sunset"
+          },
+          {
+            "fileName": "Demos/DeepHouse - The Good Life.xpj",
+            "name": "The Good Life"
+          },
+          {
+            "fileName": "Demos/FutureBass - Ur Body.xpj",
+            "name": "Ur Body"
+          },
+          {
+            "fileName": "Demos/Garage - Tonight.xpj",
+            "name": "Tonight"
+          },
+          {
+            "fileName": "Demos/HipHop - Tru Playa.xpj",
+            "name": "Tru Playa"
+          },
+          {
+            "fileName": "Demos/IbizaHouse - Dont Let Me Go.xpj",
+            "name": "Dont Let Me Go"
+          },
+          {
+            "fileName": "Demos/IbizaHouse - Fast Lane.xpj",
+            "name": "Fast Lane"
+          },
+          {
+            "fileName": "Demos/LoFiHouse - Gonna Find U.xpj",
+            "name": "Gonna Find U"
+          },
+          {
+            "fileName": "Demos/Moombahton - Club Life.xpj",
+            "name": "Club Life"
+          },
+          {
+            "fileName": "Demos/SoulfulHouse - Runaway.xpj",
+            "name": "Runaway"
+          },
+          {
+            "fileName": "Demos/TechHouse - You Get It.xpj",
+            "name": "You Get It"
+          },
+          {
+            "fileName": "Demos/Techno - Over Hill.xpj",
+            "name": "Over Hill"
+          },
+          {
+            "fileName": "Demos/Trap - Drama.xpj",
+            "name": "Drama"
+          }
+        ]
+      },
+      {
+        "type": 2,
+        "rowTitle": "OPEN A RECENT PROJECT",
+        "iconFile": "recent-proj",
+        "forgets": false,
+        "isMRU": true,
+        "items": []
+      }
+    ],
+    "recentProjectIcon": "proj-apc",
+    "rowStartY": 20,
+    "rowXMargin": 45,
+    "rowYMargin": 15,
+    "rowSpacing": 10
+  }
+}

@@ -1,0 +1,104 @@
+<div id="vuecontainer">
+    <h2>Screen Captures</h2>
+    <div class="editor">
+        <div id="controls">
+            <button @click="model.CAPTURE">CAPTURE</button>
+            <button @click="reload">Re-Load</button>
+
+        </div>
+        <ul>
+            <li class="imager" v-for="(image,index) in model.IMAGES" :key="index">
+                <div>
+                    <div class="menu"><span>{{image}}</span> <button @click="model.DELETE(image)">DELETE</button></div>
+                    <img v-if="image.endsWith('.png')" :src="'/captures/RENDER/' + image" border="0" />
+                    <video v-if="image.endsWith('.mp4')" width="100%" height="auto" controls>
+                        <source :src="'/captures/RENDER/' + image" type="video/mp4">
+
+                    </video>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</div>
+
+<style>
+    #vuecontainer {
+        margin: 0 auto;
+
+        padding: 16px;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        width: 100%;
+        position: relative;
+
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        background-color: #e5e5e5;
+        font-size: 14px;
+        /*max-width: calc(50% - 32px);*/
+        gap: 8px;
+        align-items: center;
+    }
+
+
+
+
+
+
+
+    #vuecontainer ul li label {
+        width: 200px;
+        font-size: 10px;
+    }
+
+    #vuecontainer ul li>div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #vuecontainer ul li .menu {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    #vuecontainer ul li span {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #ccc;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .imager {
+        max-width: 100%;
+    }
+
+    .imager img {
+        max-width: 100%;
+    }
+</style>
