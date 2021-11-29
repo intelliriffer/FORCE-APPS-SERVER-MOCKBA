@@ -89,6 +89,14 @@ module.exports = [
         HOME: false
     },
     {
+        NAME: "Module Manager",
+        PATH: "./api/endpoints/moduler/index.js",
+        PARAM: "/moduler",
+        URL: "/moduler",
+        HIDDEN: false,
+        HOME: true
+    },
+    {
         NAME: "Shell Console",
         PATH: "./api/endpoints/shell/index.js",
         PARAM: "/shell",

@@ -1,0 +1,184 @@
+<div id="vuecontainer">
+    <h2>Modules Manager</h2>
+    <div class="editor">
+        <div class="subinfo">Listed here are additional modules that you can tun on and off, or set to autostart at
+            Force Launch.
+        </div>
+        <ul :class="{locked:model.WORKING}">
+            <li v-for="(ky,index) in nodes" :key="index">
+                <div class="main">
+                    <div class="params">
+                        <label class="title">{{model.CONFIG[ky].NAME}}</label>
+                        <div class="args">
+                            <input v-for="(arg,index) in model.CONFIG[ky].ARGUMENTS"
+                                v-model="model.CONFIG[ky].ARGUMENTS[index].VALUE" :placeholder="arg.NAME"
+                                :title="arg.NAME" :key="index">
+                        </div>
+
+                    </div>
+
+                    <div class="controls">
+                        <span @click="run(ky,true)" v-if="!model.CONFIG[ky].RUNNING"
+                            class="material-icons play button">play_arrow</span>
+                        <span @click="run(ky,false)" v-if="model.CONFIG[ky].RUNNING"
+                            class="material-icons stop button">stop</span>
+                        <span><input type="checkbox" @change="update(ky)"
+                                v-model="model.CONFIG[ky].AUTOLAUNCH" /><label>AutoLaunch</label></span>
+                    </div>
+                </div>
+
+                <div class="desc">
+                    <pre>{{model.CONFIG[ky].DESCRIPTION}}</pre>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div id="controls">
+        <button @click="reload">Re-Load</button>
+
+
+    </div>
+</div>
+
+<style>
+    .stop {
+        color: crimson;
+    }
+
+    .play {
+        color: green;
+    }
+
+    #vuecontainer {
+        margin: 8px auto;
+        border-radius: 16px;
+        background-color: #ddd;
+        padding: 16px;
+    }
+
+    #vuecontainer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-top: 32px;
+
+    }
+
+    #vuecontainer ul .controls {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li {
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        background-color: #eee;
+        font-size: 14px;
+        align-items: flex-start;
+    }
+
+    .desc {
+        font-size: 10px;
+        background-color: #CCC;
+        width: 100%;
+        padding: 0px;
+        border-radius: 8px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: all 0.35s;
+    }
+
+    .params {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 4px;
+    }
+
+    .params label {
+        font-weight: bold;
+
+    }
+
+    .params input {
+        font-size: 10px;
+        min-width: 280px;
+    }
+
+    #vuecontainer ul li:hover .desc {
+        max-height: 300px;
+        padding: 16px;
+    }
+
+    #vuecontainer ul li .main {
+        width: 100%;
+        margin-bottom: 4px;
+        padding: 8px;
+        border-radius: 4px;
+        display: flex;
+
+        background-color: #eee;
+        font-size: 14px;
+        align-items: center;
+    }
+
+    #vuecontainer ul li label {
+        width: 200px;
+    }
+
+    #vuecontainer ul li input {
+        flex: 1;
+        padding: 4px;
+    }
+
+    #controls {
+        background-color: #555;
+        padding: 4px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+
+    .subinfo {
+        font-size: 0.8rem;
+    }
+
+    label.title {
+        flex: 1;
+    }
+
+    ul.locked {
+        pointer-events: none;
+        opacity: 0.4;
+
+    }
+
+    @media(max-width:600px) {
+        #sub-nav {
+            display: flex;
+            gap: 8px;
+            padding: 0px 0px;
+        }
+
+        #vuecontainer ul li {
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+
+        }
+
+        #vuecontainer ul li label,
+        #vuecontainer ul li input {
+            width: 100%;
+            max-width: 100%;
+        }
+
+    }
+</style>
