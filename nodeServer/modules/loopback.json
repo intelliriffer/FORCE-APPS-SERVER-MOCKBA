@@ -1,0 +1,8 @@
+{
+"NAME":"Loopback",
+"DESCRIPTION":"Spits Back Incoming Midi - Useful for Arp and other functions.",
+"PROCESSNAME":"loopback",
+"FILENAME":"loopback",
+"BACKGROUND":true,
+"AUTOLAUNCHABLE":true 
+}

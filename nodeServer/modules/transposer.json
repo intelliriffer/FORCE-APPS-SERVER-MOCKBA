@@ -1,0 +1,9 @@
+{
+  "NAME": "Transposer",
+  "DESCRIPTION": "Transposes by +36 / -24 incoming Midi on Channels 1-15, by Transpose Amount Messages on Ch:16\nCC#:3 Values 36-96, 60=0\nNotes: 36-96, 60(C5)=0",
+  "PROCESSNAME": "transposer",
+  "FILENAME": "transposer",
+  "BACKGROUND": true,
+  "AUTOLAUNCHABLE": true,
+  "ARGUMENTS": []
+}

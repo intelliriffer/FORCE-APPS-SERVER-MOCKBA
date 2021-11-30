@@ -1,0 +1,14 @@
+{
+  "NAME": "CC2PC",
+  "DESCRIPTION": "Converts CC to program Change messages for channels 1-16\nCC# 1-16 Sends  Program Change on Ch:1-16, CC# 21-36 Send Bank LSB on Respective Channels and 41-56 Sends Bank MSB\nYou Must provide HW Midi Device Port Name to Send Prgram Changes to.",
+  "PROCESSNAME": "CC2PC",
+  "FILENAME": "CC2PC",
+  "ARGUMENTS": [
+    {
+      "NAME": "HW Midi Output Port Name",
+      "VALUE": "CLK/DIN"
+    }
+  ],
+  "BACKGROUND": true,
+  "AUTOLAUNCHABLE": true
+}

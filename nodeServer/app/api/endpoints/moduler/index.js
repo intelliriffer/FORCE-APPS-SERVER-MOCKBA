@@ -86,6 +86,7 @@ function getConfig($jFile) {
     try {
         js = JSON.parse(fs.readFileSync($jFile).toString());
         js.RUNNING = isRunning(js.PROCESSNAME);
+        js.CONFIGFILE = $jFile;
         let xPath = path.join(path.dirname($jFile), js.FILENAME);
         //  console.log(xPath);
         js.EXISTS = fs.existsSync(xPath) && fs.statSync(xPath).isFile();
@@ -129,6 +130,11 @@ function UPDATE() {
         REQ.on('end', () => {
             let $payload = $body;
             JSN = JSON.parse($payload);
+
+            let $config = JSON.parse(fs.readFileSync(JSN.CONFIGFILE).toString());
+            $config.ARGUMENTS = JSN.ARGUMENTS;
+            fs.writeFileSync(JSN.CONFIGFILE, JSON.stringify($config, null, 2));
+
 
             //console.log(JSN);
             if (JSN.RUNNING) {
