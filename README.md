@@ -83,6 +83,7 @@ Features:
 	This is Single Console Like Window where you can send Linux Commands to your Akai Force.
 	MPC Verbose Log and Last N Dmesg are most useful to check for any error/issues being reported  on your device.
 	Few useful commands are provided as shortcuts.
+	
 7: **Modules Manager**
 	The App Server Now Supports Custom modules (Programs) that can be Started and Stopped from Web Interface or allowed to run from start. Most Modules are special program that add functionality to Akai Force mostly Midi.
 
