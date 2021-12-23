@@ -137,7 +137,7 @@ const vApp = new Vue({
                 TITLECOLOR(HEX) {
                     let C = this.RGB(HEX);
                     let I = (C.R * 0.299) + (C.G * 0.587) + (C.B * 0.114);
-                    console.log(HEX, I);
+                    //console.log(HEX, I);
                     return I > 100 ? '000000' : 'FFFFFF';
 
                 },
@@ -192,6 +192,7 @@ const vApp = new Vue({
         },
         setColor(C, t) {
             this.tracks[t].COLOR = this.COLORS.ASINT(C.CODE);
+            this.$forceUpdate();
 
         },
         COLORSTYLE(C) {
