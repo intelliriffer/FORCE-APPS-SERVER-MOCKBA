@@ -1,0 +1,9 @@
+{
+  "NAME": "Router",
+  "DESCRIPTION": "Routes Message from Ch1 to Ch 1-8 Defined by range and transposition for each.\nConfig Ch:16  CC:20-22= Min Note, Max Note, Transpose 60=0,\nSame repeats for each other channes from CC:23 onwards",
+  "PROCESSNAME": "router",
+  "FILENAME": "router",
+  "BACKGROUND": true,
+  "AUTOLAUNCHABLE": true,
+  "ARGUMENTS": []
+}
